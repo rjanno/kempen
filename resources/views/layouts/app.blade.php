@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ config('app.name', 'SK Management') }}</title>
+    <title>{{ config('app.name', 'SIP-PB') }}</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -241,7 +241,7 @@
         <div class="sidebar-header">
             <a href="#" class="sidebar-logo">
                 <i class="fas fa-file-signature text-primary"></i>
-                SK Portal
+                SIP-PB
             </a>
         </div>
         
@@ -303,7 +303,7 @@
 
         <div class="sidebar-footer">
             <div class="text-center text-muted small">
-                &copy; {{ date('Y') }} SK Portal<br><small>Created by RAH</small>
+                &copy; {{ date('Y') }} SIP-PB<br><small>Created by RAH</small>
             </div>
         </div>
     </nav>
@@ -311,7 +311,7 @@
     <!-- Mobile Topbar -->
     <div id="mobile-nav">
         <a href="#" class="sidebar-logo fs-4 text-decoration-none">
-            <i class="fas fa-file-signature text-primary"></i> SK Portal
+            <i class="fas fa-file-signature text-primary"></i> SIP-PB
         </a>
         <div class="d-flex align-items-center gap-2">
             <div class="dropdown">
