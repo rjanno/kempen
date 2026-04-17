@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="d-flex justify-content-between align-items-center mb-4 mt-4">
+<div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4 mt-4">
     <h2>Manajemen PKS</h2>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahPksModal">
         <i class="fas fa-plus me-1"></i> Tambah PKS

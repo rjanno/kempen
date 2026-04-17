@@ -137,8 +137,8 @@
                 <h5 class="fw-bold text-gray-800 mb-0"><i class="fas fa-chart-bar text-primary me-2"></i> Statistik Akses SK</h5>
                 <p class="text-muted small">Top 5 Surat Keputusan yang paling sering diunduh/dilihat oleh pengguna.</p>
             </div>
-            <div class="card-body px-4 pb-4">
-                <canvas id="skChart" height="100"></canvas>
+            <div class="card-body px-4 pb-4" style="position: relative; height: 350px; width: 100%;">
+                <canvas id="skChart"></canvas>
             </div>
         </div>
     </div>
@@ -164,8 +164,8 @@
                     </form>
                 </div>
             </div>
-            <div class="card-body px-4 pb-4">
-                <canvas id="loginChart" height="80"></canvas>
+            <div class="card-body px-4 pb-4" style="position: relative; height: 350px; width: 100%;">
+                <canvas id="loginChart"></canvas>
             </div>
         </div>
     </div>
@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', function() {
         data: chartData,
         options: {
             responsive: true,
-            maintainAspectRatio: true,
+            maintainAspectRatio: false,
             plugins: {
                 legend: { display: false },
                 tooltip: {
@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: true,
+                maintainAspectRatio: false,
                 plugins: {
                     legend: { display: false },
                     tooltip: {

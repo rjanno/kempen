@@ -33,7 +33,7 @@
 @endpush
 
 @section('content')
-<div class="d-flex justify-content-between align-items-center mb-4 mt-4 border-bottom pb-3">
+<div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4 mt-4 border-bottom pb-3">
     <h2 class="fw-bold m-0 text-dark">Arsip PKS</h2>
 </div>
 
