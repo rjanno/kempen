@@ -348,7 +348,7 @@
     @endauth
 
     <!-- Main Content -->
-    <div id="{{ auth()->check() ? 'main-content' : '' }}">
+    <div id="{{ auth()->check() ? 'main-content' : '' }}" class="{{ auth()->check() ? '' : 'd-flex flex-column justify-content-center min-vh-100' }}">
         @auth
         <!-- Desktop Topbar -->
         <div id="topbar" class="d-none d-lg-flex">
@@ -386,7 +386,7 @@
         </div>
         @endauth
 
-        <div class="{{ auth()->check() ? 'content-wrapper' : 'container-fluid p-4' }}">
+        <div class="{{ auth()->check() ? 'content-wrapper' : 'container-fluid px-3 px-md-4 py-4' }}">
             @if(session('success'))
                 <div class="alert alert-success alert-dismissible fade show shadow-sm border-0" role="alert">
                     <i class="fas fa-check-circle me-2"></i> {{ session('success') }}

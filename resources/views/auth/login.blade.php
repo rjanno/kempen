@@ -8,12 +8,12 @@
         }
 
         .login-container {
-            min-height: calc(100vh - 56px);
-            /* Adjusting for navbar if present */
+            min-height: calc(100vh - 4rem);
+            /* Adjusting for padding */
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1.5rem;
+            padding: 0;
         }
 
         .login-card {
@@ -84,11 +84,15 @@
 
         @media (max-width: 576px) {
             .login-body {
-                padding: 2rem 1.5rem;
+                padding: 1.75rem 1.25rem;
             }
 
             .login-header {
-                padding: 2rem 1rem;
+                padding: 1.75rem 1rem;
+            }
+
+            .login-card {
+                border-radius: 16px;
             }
         }
     </style>
@@ -97,8 +101,8 @@
 
 @section('content')
     <div class="login-container">
-        <div class="row w-100 justify-content-center">
-            <div class="col-md-8 col-lg-6 col-xl-5">
+        <div class="row w-100 mx-0 justify-content-center">
+            <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 px-0 px-sm-3">
                 <div class="card login-card">
                     <div class="login-header">
                         <i class="fas fa-file-signature fa-3x mb-3 text-white-50"></i>
