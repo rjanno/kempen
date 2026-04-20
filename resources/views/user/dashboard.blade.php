@@ -111,8 +111,8 @@
                 <div class="input-group shadow-sm" style="border-radius: 8px;">
                     <span class="input-group-text bg-white border-end-0 text-muted"><i class="fas fa-sort-amount-down"></i></span>
                     <select id="sortSelect" class="form-select border-start-0 shadow-none">
-                        <option value="newest">Ditambahkan Terbaru</option>
-                        <option value="oldest">Ditambahkan Terlama</option>
+                        <option value="newest">Terbaru</option>
+                        <option value="oldest">Terlama</option>
                         <option value="a-z">Alfabetik (A-Z)</option>
                         <option value="z-a">Alfabetik (Z-A)</option>
                     </select>
@@ -137,7 +137,7 @@
                         </thead>
                         <tbody id="skTableBody">
                             @forelse($policies as $index => $sk)
-                            <tr class="sk-row" data-title="{{ strtolower($sk->title) }}" data-date="{{ $sk->created_at->timestamp }}" data-category="{{ $sk->category }}" data-status="{{ $sk->status }}">
+                            <tr class="sk-row" data-title="{{ strtolower($sk->title) }}" data-date="{{ $sk->effective_date ? \Carbon\Carbon::parse($sk->effective_date)->timestamp : 0 }}" data-category="{{ $sk->category }}" data-status="{{ $sk->status }}">
                                 <td class="ps-4">{{ $index + 1 }}</td>
                                 <td class="fw-bold text-dark">
                                     {{ $sk->title }}

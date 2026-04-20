@@ -61,7 +61,7 @@
                 </thead>
                 <tbody>
                     @forelse($policies as $index => $sk)
-                    <tr class="admin-sk-row" data-title="{{ strtolower($sk->title) }}" data-category="{{ $sk->category }}" data-status="{{ $sk->status }}" data-date="{{ $sk->created_at->timestamp }}">
+                    <tr class="admin-sk-row" data-title="{{ strtolower($sk->title) }}" data-category="{{ $sk->category }}" data-status="{{ $sk->status }}" data-date="{{ $sk->effective_date ? \Carbon\Carbon::parse($sk->effective_date)->timestamp : 0 }}">
                         <td class="ps-4">{{ $index + 1 }}</td>
                         <td class="fw-medium">{{ $sk->title }}</td>
                         <td>

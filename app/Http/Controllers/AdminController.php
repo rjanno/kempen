@@ -41,7 +41,7 @@ class AdminController extends Controller
 
     public function sk()
     {
-        $policies = Policy::latest()->get();
+        $policies = Policy::orderByDesc('effective_date')->get();
         return view('admin.sk.index', compact('policies'));
     }
 
@@ -122,7 +122,7 @@ class AdminController extends Controller
 
     public function pojk()
     {
-        $pojks = Pojk::latest()->get();
+        $pojks = Pojk::orderByDesc('effective_date')->get();
         return view('admin.pojk.index', compact('pojks'));
     }
 
@@ -193,7 +193,7 @@ class AdminController extends Controller
 
     public function pks()
     {
-        $pks = Pks::latest()->get();
+        $pks = Pks::orderByDesc('effective_date')->get();
         return view('admin.pks.index', compact('pks'));
     }
 

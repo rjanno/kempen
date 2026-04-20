@@ -58,7 +58,7 @@
                 </thead>
                 <tbody>
                     @forelse($pojks as $index => $pojk)
-                    <tr class="admin-pojk-row" data-title="{{ strtolower($pojk->title) }}" data-category="{{ $pojk->category }}" data-status="{{ $pojk->status }}" data-date="{{ $pojk->created_at->timestamp }}">
+                    <tr class="admin-pojk-row" data-title="{{ strtolower($pojk->title) }}" data-category="{{ $pojk->category }}" data-status="{{ $pojk->status }}" data-date="{{ $pojk->effective_date ? \Carbon\Carbon::parse($pojk->effective_date)->timestamp : 0 }}">
                         <td class="ps-4">{{ $index + 1 }}</td>
                         <td class="fw-medium">{{ $pojk->title }}</td>
                         <td>

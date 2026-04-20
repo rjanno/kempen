@@ -13,19 +13,19 @@ class UserController extends Controller
 {
     public function sk()
     {
-        $policies = Policy::latest()->get();
+        $policies = Policy::orderByDesc('effective_date')->get();
         return view('user.sk', compact('policies'));
     }
 
     public function pojk()
     {
-        $pojks = Pojk::latest()->get();
+        $pojks = Pojk::orderByDesc('effective_date')->get();
         return view('user.pojk', compact('pojks'));
     }
 
     public function pks()
     {
-        $pks = Pks::latest()->get();
+        $pks = Pks::orderByDesc('effective_date')->get();
         return view('user.pks', compact('pks'));
     }
 

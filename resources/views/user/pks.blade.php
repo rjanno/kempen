@@ -78,7 +78,7 @@
                 </thead>
                 <tbody>
                     @forelse($pks as $index => $item)
-                    <tr class="pks-row" data-title="{{ strtolower($item->title) }}" data-status="{{ $item->status }}" data-date="{{ $item->created_at->timestamp }}">
+                    <tr class="pks-row" data-title="{{ strtolower($item->title) }}" data-status="{{ $item->status }}" data-date="{{ $item->effective_date ? \Carbon\Carbon::parse($item->effective_date)->timestamp : 0 }}">
                         <td class="ps-4">{{ $index + 1 }}</td>
                         <td class="fw-bold text-dark">{{ $item->title }}</td>
                         <td>
