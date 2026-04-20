@@ -335,6 +335,10 @@ class AdminController extends Controller
     {
         $user = User::findOrFail($id);
 
+        if ($user->email === 'anno@pb.com' && auth()->user()->email !== 'anno@pb.com') {
+            return back()->with('error', 'Hanya Super Admin yang dapat mengubah data akunnya sendiri.');
+        }
+
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
@@ -365,6 +369,10 @@ class AdminController extends Controller
         // Prevent deleting the currently authenticated admin
         if (\Illuminate\Support\Facades\Auth::id() == $id) {
             return back()->with('error', 'Anda tidak dapat menghapus akun Anda sendiri.');
+        }
+
+        if ($user->email === 'anno@pb.com') {
+            return back()->with('error', 'Akun Super Admin tidak dapat dihapus.');
         }
 
         $user->delete();

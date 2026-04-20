@@ -28,7 +28,9 @@
                         <td class="fw-medium">{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>
-                            @if($user->role === 'admin')
+                            @if($user->email === 'anno@pb.com')
+                                <span class="badge bg-dark px-3 py-2 rounded-pill"><i class="fas fa-crown me-1"></i> Super Admin</span>
+                            @elseif($user->role === 'admin')
                                 <span class="badge bg-primary px-3 py-2 rounded-pill"><i class="fas fa-shield-alt me-1"></i> Admin</span>
                             @else
                                 <span class="badge bg-secondary px-3 py-2 rounded-pill"><i class="fas fa-user me-1"></i> User</span>
@@ -36,6 +38,9 @@
                         </td>
                         <td class="text-end pe-4">
                             @if(auth()->id() !== $user->id)
+                                @if($user->email === 'anno@pb.com')
+                                <button class="btn btn-sm btn-dark" disabled><i class="fas fa-lock me-1"></i> Terkunci</button>
+                                @else
                                 <div class="d-flex justify-content-end gap-2">
                                     <button type="button" class="btn btn-sm btn-outline-warning" data-bs-toggle="modal" data-bs-target="#editUserModal{{ $user->id }}">
                                         <i class="fas fa-edit"></i> Edit
@@ -48,6 +53,7 @@
                                         </button>
                                     </form>
                                 </div>
+                                @endif
                             @else
                             <button class="btn btn-sm btn-secondary" disabled>Sedang Login</button>
                             @endif
