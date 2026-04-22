@@ -49,7 +49,7 @@ class AdminController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'file' => 'required|mimes:pdf|max:10240',
+            'file' => 'required|mimes:pdf|max:102400',
             'effective_date' => 'nullable|date',
             'status' => 'required|in:berlaku,tidak_berlaku',
             'category' => 'required|in:sk,kpo,spo,mi,se'
@@ -82,7 +82,7 @@ class AdminController extends Controller
 
         $request->validate([
             'title' => 'required|string|max:255',
-            'file' => 'nullable|mimes:pdf|max:10240',
+            'file' => 'nullable|mimes:pdf|max:102400',
             'effective_date' => 'nullable|date',
             'status' => 'required|in:berlaku,tidak_berlaku',
             'category' => 'required|in:sk,kpo,spo,mi,se'
@@ -130,7 +130,7 @@ class AdminController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'file' => 'required|mimes:pdf|max:10240',
+            'file' => 'required|mimes:pdf|max:102400',
             'effective_date' => 'nullable|date',
             'status' => 'required|in:berlaku,tidak_berlaku',
             'category' => 'required|in:pojk,padk'
@@ -155,7 +155,7 @@ class AdminController extends Controller
 
         $request->validate([
             'title' => 'required|string|max:255',
-            'file' => 'nullable|mimes:pdf|max:10240',
+            'file' => 'nullable|mimes:pdf|max:102400',
             'effective_date' => 'nullable|date',
             'status' => 'required|in:berlaku,tidak_berlaku',
             'category' => 'required|in:pojk,padk'
@@ -201,7 +201,7 @@ class AdminController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'file' => 'required|mimes:pdf|max:10240',
+            'file' => 'required|mimes:pdf|max:102400',
             'effective_date' => 'nullable|date',
             'status' => 'required|in:berlaku,tidak_berlaku',
             'category' => 'required|in:pks'

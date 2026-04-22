@@ -137,7 +137,7 @@
                     <div class="mb-3">
                         <label for="file{{ $item->id }}" class="form-label fw-bold">Pilih File PDF Baru (Opsional)</label>
                         <input type="file" class="form-control" id="file{{ $item->id }}" name="file" accept="application/pdf">
-                        <div class="form-text">Biarkan kosong jika tidak ingin mengubah file draft yang ada. Maksimal ukuran file: 10MB.</div>
+                        <div class="form-text">Biarkan kosong jika tidak ingin mengubah file draft yang ada. Maksimal ukuran file: 100MB.</div>
                     </div>
                 </div>
                 <div class="modal-footer bg-light">
@@ -182,7 +182,7 @@
                     <div class="mb-3">
                         <label for="file" class="form-label fw-bold">Pilih File PDF</label>
                         <input type="file" class="form-control" id="file" name="file" accept="application/pdf" required>
-                        <div class="form-text">Maksimal ukuran file: 10MB. Format harus .pdf.</div>
+                        <div class="form-text">Maksimal ukuran file: 100MB. Format harus .pdf.</div>
                     </div>
                 </div>
                 <div class="modal-footer bg-light">
