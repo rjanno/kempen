@@ -156,7 +156,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="file{{ $pojk->id }}" class="form-label fw-bold">Pilih File PDF Baru (Opsional)</label>
-                        <input type="file" class="form-control" id="file{{ $pojk->id }}" name="file" accept="application/pdf">
+                        <input type="file" class="form-control" id="file{{ $pojk->id }}" name="file" accept=".pdf,.docx">
                         <div class="form-text">Biarkan kosong jika tidak ingin mengubah file draft yang ada. Maksimal ukuran file: 100MB.</div>
                     </div>
                 </div>
@@ -207,8 +207,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="file" class="form-label fw-bold">Pilih File PDF</label>
-                        <input type="file" class="form-control" id="file" name="file" accept="application/pdf" required>
-                        <div class="form-text">Maksimal ukuran file: 100MB. Format harus .pdf.</div>
+                        <input type="file" class="form-control" id="file" name="file" accept=".pdf,.docx" required>
+                        <div class="form-text">Maksimal ukuran file: 100MB. Format harus .pdf atau .docx.</div>
                     </div>
                 </div>
                 <div class="modal-footer bg-light">
