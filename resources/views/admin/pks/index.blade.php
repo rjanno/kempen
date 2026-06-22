@@ -116,6 +116,15 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    @if ($errors->any())
+                        <div class="alert alert-danger" style="color: red; background: #f8d7da; padding: 10px; margin-bottom: 15px; border-radius: 5px;">
+                            <ul style="margin: 0;">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="mb-3">
                         <label for="title{{ $item->id }}" class="form-label fw-bold">Judul Dokumen</label>
                         <input type="text" class="form-control" id="title{{ $item->id }}" name="title" value="{{ $item->title }}" required>
@@ -161,6 +170,15 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    @if ($errors->any())
+                        <div class="alert alert-danger" style="color: red; background: #f8d7da; padding: 10px; margin-bottom: 15px; border-radius: 5px;">
+                            <ul style="margin: 0;">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="mb-3">
                         <label for="title" class="form-label fw-bold">Judul Dokumen</label>
                         <input type="text" class="form-control" id="title" name="title" required placeholder="Contoh: PKS No 1 Tahun 2026">

@@ -136,6 +136,15 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    @if ($errors->any())
+                        <div class="alert alert-danger" style="color: red; background: #f8d7da; padding: 10px; margin-bottom: 15px; border-radius: 5px;">
+                            <ul style="margin: 0;">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="mb-3">
                         <label for="title{{ $sk->id }}" class="form-label fw-bold">Judul Surat Keputusan</label>
                         <input type="text" class="form-control" id="title{{ $sk->id }}" name="title" value="{{ $sk->title }}" required>
@@ -190,6 +199,15 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    @if ($errors->any())
+                        <div class="alert alert-danger" style="color: red; background: #f8d7da; padding: 10px; margin-bottom: 15px; border-radius: 5px;">
+                            <ul style="margin: 0;">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="mb-3">
                         <label for="title" class="form-label fw-bold">Judul Surat Keputusan</label>
                         <input type="text" class="form-control" id="title" name="title" required placeholder="Contoh: SK Pengangkatan Pegawai 2026">
