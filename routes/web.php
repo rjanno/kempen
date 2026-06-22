@@ -67,3 +67,7 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/profile', [UserController::class, 'updateProfile'])->name('profile.update');
     });
 });
+
+Route::get('/cek-php', function() {
+    phpinfo();
+});
