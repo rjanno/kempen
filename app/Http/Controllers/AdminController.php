@@ -47,6 +47,10 @@ class AdminController extends Controller
 
     public function storeSk(Request $request)
     {
+        if ($uploadError = $this->checkUploadErrors()) {
+            return back()->withErrors(['file' => $uploadError])->withInput();
+        }
+
         $request->validate([
             'title' => 'required|string|max:255',
             'file' => 'required|mimes:pdf,docx|max:102400',
@@ -78,6 +82,10 @@ class AdminController extends Controller
 
     public function updateSk(Request $request, $id)
     {
+        if ($uploadError = $this->checkUploadErrors()) {
+            return back()->withErrors(['file' => $uploadError])->withInput();
+        }
+
         $policy = Policy::findOrFail($id);
 
         $request->validate([
@@ -128,6 +136,10 @@ class AdminController extends Controller
 
     public function storePojk(Request $request)
     {
+        if ($uploadError = $this->checkUploadErrors()) {
+            return back()->withErrors(['file' => $uploadError])->withInput();
+        }
+
         $request->validate([
             'title' => 'required|string|max:255',
             'file' => 'required|mimes:pdf,docx|max:102400',
@@ -151,6 +163,10 @@ class AdminController extends Controller
 
     public function updatePojk(Request $request, $id)
     {
+        if ($uploadError = $this->checkUploadErrors()) {
+            return back()->withErrors(['file' => $uploadError])->withInput();
+        }
+
         $pojk = Pojk::findOrFail($id);
 
         $request->validate([
@@ -199,6 +215,10 @@ class AdminController extends Controller
 
     public function storePks(Request $request)
     {
+        if ($uploadError = $this->checkUploadErrors()) {
+            return back()->withErrors(['file' => $uploadError])->withInput();
+        }
+
         $request->validate([
             'title' => 'required|string|max:255',
             'file' => 'required|mimes:pdf,docx|max:102400',
@@ -222,6 +242,10 @@ class AdminController extends Controller
 
     public function updatePks(Request $request, $id)
     {
+        if ($uploadError = $this->checkUploadErrors()) {
+            return back()->withErrors(['file' => $uploadError])->withInput();
+        }
+
         $pks = Pks::findOrFail($id);
 
         $request->validate([
@@ -378,4 +402,25 @@ class AdminController extends Controller
         $user->delete();
         return back()->with('success', 'Pengguna berhasil dihapus.');
     }
+
+    protected function checkUploadErrors()
+    {
+        if (isset($_FILES)) {
+            foreach ($_FILES as $key => $file) {
+                if (isset($file['error']) && $file['error'] !== UPLOAD_ERR_OK && $file['error'] !== UPLOAD_ERR_NO_FILE) {
+                    $errorMessage = 'Gagal mengunggah file.';
+                    if ($file['error'] === UPLOAD_ERR_INI_SIZE || $file['error'] === UPLOAD_ERR_FORM_SIZE) {
+                        $errorMessage = 'Ukuran file terlalu besar, melebihi batas konfigurasi server.';
+                    } elseif ($file['error'] === UPLOAD_ERR_PARTIAL) {
+                        $errorMessage = 'File hanya terunggah sebagian. Silakan coba lagi.';
+                    } elseif ($file['error'] === UPLOAD_ERR_CANT_WRITE) {
+                        $errorMessage = 'Gagal menulis file ke disk server.';
+                    }
+                    return $errorMessage;
+                }
+            }
+        }
+        return null;
+    }
 }
+

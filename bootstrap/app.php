@@ -18,5 +18,8 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->redirectGuestsTo('/login');
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        //
+        $exceptions->render(function (\Illuminate\Http\Exceptions\PostTooLargeException $e, \Illuminate\Http\Request $request) {
+            return back()->withErrors(['file' => 'Ukuran file/data yang diunggah terlalu besar. Terjadi kegagalan karena melebihi batas postingan server (post_max_size).'])->withInput();
+        });
     })->create();
+

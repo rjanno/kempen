@@ -399,6 +399,18 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
+            @if ($errors->any())
+                <div class="alert alert-danger alert-dismissible fade show shadow-sm border-0" role="alert">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    <strong>Gagal memproses data:</strong>
+                    <ul class="mb-0 mt-1">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
 
             @yield('content')
         </div>
@@ -415,8 +427,21 @@
                 $('#sidebar').toggleClass('show');
                 $('#sidebarOverlay').toggleClass('show');
             });
+
+            // Client-side file size validation for uploads
+            $(document).on('change', 'input[type="file"]', function() {
+                const file = this.files[0];
+                if (file) {
+                    const maxSize = 100 * 1024 * 1024; // 100MB in bytes
+                    if (file.size > maxSize) {
+                        alert('Ukuran file terlalu besar! Maksimal ukuran file adalah 100MB.');
+                        $(this).val(''); // Reset file input
+                    }
+                }
+            });
         });
     </script>
+
     @stack('scripts')
 </body>
 </html>
