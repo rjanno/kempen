@@ -131,6 +131,7 @@
             <form action="{{ route('admin.sk.update', $sk->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
+                <input type="hidden" name="modal_id" value="editSKModal{{ $sk->id }}">
                 <div class="modal-header bg-warning text-dark">
                     <h5 class="modal-title" id="editSKModalLabel{{ $sk->id }}"><i class="fas fa-edit me-2"></i>Edit SK</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -194,6 +195,7 @@
         <div class="modal-content">
             <form action="{{ route('admin.sk.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                <input type="hidden" name="modal_id" value="tambahSKModal">
                 <div class="modal-header bg-primary text-white">
                     <h5 class="modal-title" id="tambahSKModalLabel"><i class="fas fa-file-pdf me-2"></i>Tambah SK Baru</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>

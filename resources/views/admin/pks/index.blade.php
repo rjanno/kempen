@@ -111,6 +111,7 @@
             <form action="{{ route('admin.pks.update', $item->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
+                <input type="hidden" name="modal_id" value="editPksModal{{ $item->id }}">
                 <div class="modal-header bg-warning text-dark">
                     <h5 class="modal-title" id="editPksModalLabel{{ $item->id }}"><i class="fas fa-edit me-2"></i>Edit PKS</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -165,6 +166,7 @@
         <div class="modal-content">
             <form action="{{ route('admin.pks.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                <input type="hidden" name="modal_id" value="tambahPksModal">
                 <div class="modal-header bg-primary text-white">
                     <h5 class="modal-title" id="tambahPksModalLabel"><i class="fas fa-file-pdf me-2"></i>Tambah PKS Baru</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>

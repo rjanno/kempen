@@ -125,6 +125,7 @@
             <form action="{{ route('admin.pojk.update', $pojk->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
+                <input type="hidden" name="modal_id" value="editPojkModal{{ $pojk->id }}">
                 <div class="modal-header bg-warning text-dark">
                     <h5 class="modal-title" id="editPojkModalLabel{{ $pojk->id }}"><i class="fas fa-edit me-2"></i>Edit POJK / PADK</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -185,6 +186,7 @@
         <div class="modal-content">
             <form action="{{ route('admin.pojk.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                <input type="hidden" name="modal_id" value="tambahPojkModal">
                 <div class="modal-header bg-primary text-white">
                     <h5 class="modal-title" id="tambahPojkModalLabel"><i class="fas fa-file-pdf me-2"></i>Tambah POJK / PADK Baru</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>

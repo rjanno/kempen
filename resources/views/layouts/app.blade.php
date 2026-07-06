@@ -442,6 +442,19 @@
         });
     </script>
 
+    @if($errors->any() && old('modal_id'))
+    <script>
+        $(document).ready(function() {
+            var modalId = "{{ old('modal_id') }}";
+            var modalEl = document.getElementById(modalId);
+            if (modalEl) {
+                var myModal = new bootstrap.Modal(modalEl);
+                myModal.show();
+            }
+        });
+    </script>
+    @endif
+
     @stack('scripts')
 </body>
 </html>
