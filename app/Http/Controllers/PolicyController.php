@@ -14,7 +14,8 @@ class PolicyController extends Controller
         
         if ($policy->file_path && Storage::disk('public')->exists($policy->file_path)) {
             $policy->increment('views_count');
-            $filename = \Illuminate\Support\Str::slug($policy->title) . '.pdf';
+            $extension = pathinfo($policy->file_path, PATHINFO_EXTENSION);
+            $filename = \Illuminate\Support\Str::slug($policy->title) . '.' . $extension;
             return response()->download(storage_path('app/public/' . $policy->file_path), $filename);
         }
 
@@ -27,10 +28,11 @@ class PolicyController extends Controller
         
         if ($policy->file_path && Storage::disk('public')->exists($policy->file_path)) {
             $policy->increment('views_count');
-            $filename = \Illuminate\Support\Str::slug($policy->title) . '.pdf';
-            return response()->file(storage_path('app/public/' . $policy->file_path), [
-                'Content-Disposition' => 'inline; filename="' . $filename . '"'
-            ]);
+            $extension = pathinfo($policy->file_path, PATHINFO_EXTENSION);
+            $filename = \Illuminate\Support\Str::slug($policy->title) . '.' . $extension;
+            $response = response()->file(storage_path('app/public/' . $policy->file_path));
+            $response->setContentDisposition('inline', $filename);
+            return $response;
         }
 
         return back()->with('error', 'File tidak ditemukan.');

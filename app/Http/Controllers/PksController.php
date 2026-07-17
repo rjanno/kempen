@@ -14,7 +14,8 @@ class PksController extends Controller
         
         if ($pks->file_path && Storage::disk('public')->exists($pks->file_path)) {
             $pks->increment('views_count');
-            $filename = \Illuminate\Support\Str::slug($pks->title) . '.pdf';
+            $extension = pathinfo($pks->file_path, PATHINFO_EXTENSION);
+            $filename = \Illuminate\Support\Str::slug($pks->title) . '.' . $extension;
             return response()->download(storage_path('app/public/' . $pks->file_path), $filename);
         }
 
@@ -27,10 +28,11 @@ class PksController extends Controller
         
         if ($pks->file_path && Storage::disk('public')->exists($pks->file_path)) {
             $pks->increment('views_count');
-            $filename = \Illuminate\Support\Str::slug($pks->title) . '.pdf';
-            return response()->file(storage_path('app/public/' . $pks->file_path), [
-                'Content-Disposition' => 'inline; filename="' . $filename . '"'
-            ]);
+            $extension = pathinfo($pks->file_path, PATHINFO_EXTENSION);
+            $filename = \Illuminate\Support\Str::slug($pks->title) . '.' . $extension;
+            $response = response()->file(storage_path('app/public/' . $pks->file_path));
+            $response->setContentDisposition('inline', $filename);
+            return $response;
         }
 
         return back()->with('error', 'File tidak ditemukan.');

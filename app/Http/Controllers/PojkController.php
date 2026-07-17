@@ -14,7 +14,8 @@ class PojkController extends Controller
         
         if ($pojk->file_path && Storage::disk('public')->exists($pojk->file_path)) {
             $pojk->increment('views_count');
-            $filename = \Illuminate\Support\Str::slug($pojk->title) . '.pdf';
+            $extension = pathinfo($pojk->file_path, PATHINFO_EXTENSION);
+            $filename = \Illuminate\Support\Str::slug($pojk->title) . '.' . $extension;
             return response()->download(storage_path('app/public/' . $pojk->file_path), $filename);
         }
 
@@ -27,10 +28,11 @@ class PojkController extends Controller
         
         if ($pojk->file_path && Storage::disk('public')->exists($pojk->file_path)) {
             $pojk->increment('views_count');
-            $filename = \Illuminate\Support\Str::slug($pojk->title) . '.pdf';
-            return response()->file(storage_path('app/public/' . $pojk->file_path), [
-                'Content-Disposition' => 'inline; filename="' . $filename . '"'
-            ]);
+            $extension = pathinfo($pojk->file_path, PATHINFO_EXTENSION);
+            $filename = \Illuminate\Support\Str::slug($pojk->title) . '.' . $extension;
+            $response = response()->file(storage_path('app/public/' . $pojk->file_path));
+            $response->setContentDisposition('inline', $filename);
+            return $response;
         }
 
         return back()->with('error', 'File tidak ditemukan.');
