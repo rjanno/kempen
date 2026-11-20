@@ -75,12 +75,12 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>SIP-PB - Regulasi Internal Baru</h1>
+            <h1>SIP-BS - Regulasi Internal Baru</h1>
         </div>
         
         <div class="content">
             <p>Halo,</p>
-            <p>Pemberitahuan bahwa terdapat <strong>Regulasi Internal (SK) baru</strong> yang telah diterbitkan dan diunggah ke dalam sistem SIP-PB.</p>
+            <p>Pemberitahuan bahwa terdapat <strong>Regulasi Internal (SK) baru</strong> yang telah diterbitkan dan diunggah ke dalam sistem SIP-BS.</p>
             
             <div class="policy-details">
                 <p><strong>Judul:</strong> {{ $policy->title }}</p>
@@ -101,7 +101,7 @@
         </div>
         
         <div class="footer">
-            &copy; {{ date('Y') }} SIP-PB - Created by R Anno Hendrawan. Email ini dibuat otomatis oleh sistem.
+            &copy; {{ date('Y') }} SIP-BS - Created by R Anno Hendrawan. Email ini dibuat otomatis oleh sistem.
         </div>
     </div>
 </body>

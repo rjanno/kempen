@@ -1,35 +1,35 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4 mt-4">
-    <h2>Manajemen POJK / PADK</h2>
+<div class="d-flex flex-column flex-md-row justify-content-between align-items-stretch align-items-md-center gap-2 gap-md-3 mb-4">
+    <h2 class="fs-4 fs-md-2 mb-0">Manajemen POJK / PADK</h2>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahPojkModal">
         <i class="fas fa-plus me-1"></i> Tambah POJK / PADK
     </button>
 </div>
 
 <div class="row mb-3 g-2">
-    <div class="col-md-4">
+    <div class="col-12 col-md-4">
         <div class="input-group shadow-sm" style="border-radius: 8px;">
             <span class="input-group-text bg-white border-end-0 text-primary"><i class="fas fa-search"></i></span>
             <input type="text" id="adminSearchInput" class="form-control border-start-0 shadow-none" placeholder="Cari Judul POJK...">
         </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-6 col-md-3">
         <select id="adminCategoryFilter" class="form-select shadow-sm" style="border-radius: 8px;">
             <option value="all">Semua Kategori</option>
             <option value="pojk">POJK</option>
             <option value="padk">PADK</option>
         </select>
     </div>
-    <div class="col-md-2">
+    <div class="col-6 col-md-2">
         <select id="adminStatusFilter" class="form-select shadow-sm" style="border-radius: 8px;">
             <option value="all">Semua Status</option>
             <option value="berlaku">Berlaku</option>
             <option value="tidak_berlaku">Tidak Berlaku</option>
         </select>
     </div>
-    <div class="col-md-3">
+    <div class="col-12 col-md-3">
         <div class="input-group shadow-sm" style="border-radius: 8px;">
             <span class="input-group-text bg-white border-end-0 text-muted"><i class="fas fa-sort-amount-down"></i></span>
             <select id="adminSortSelect" class="form-select border-start-0 shadow-none">

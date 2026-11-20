@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4 mt-4">
-    <h2>Manajemen Pengguna</h2>
+<div class="d-flex flex-column flex-md-row justify-content-between align-items-stretch align-items-md-center gap-2 gap-md-3 mb-4">
+    <h2 class="fs-4 fs-md-2 mb-0">Manajemen Pengguna</h2>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahUserModal">
         <i class="fas fa-user-plus me-1"></i> Tambah Pengguna
     </button>

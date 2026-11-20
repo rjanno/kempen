@@ -82,9 +82,9 @@
     <p class="text-muted">Ringkasan statistik data Portal SK saat ini.</p>
 </div>
 
-<div class="row g-4 mb-5">
+<div class="row g-3 g-md-4 mb-4">
     <!-- Stat Card 1 -->
-    <div class="col-md-4">
+    <div class="col-12 col-md-4">
         <div class="card stat-card stat-card-1 shadow-sm h-100">
             <div class="card-body stat-card-body">
                 <h6 class="text-white-50 text-uppercase fw-bold mb-2">Total Dokumen SK</h6>
@@ -99,7 +99,7 @@
     </div>
     
     <!-- Stat Card 2 -->
-    <div class="col-md-4">
+    <div class="col-12 col-md-4">
         <div class="card stat-card stat-card-2 shadow-sm h-100">
             <div class="card-body stat-card-body">
                 <h6 class="text-white-50 text-uppercase fw-bold mb-2">Total Video / Sosialisasi</h6>
@@ -114,7 +114,7 @@
     </div>
     
     <!-- Stat Card 3 -->
-    <div class="col-md-4">
+    <div class="col-12 col-md-4">
         <div class="card stat-card stat-card-3 shadow-sm h-100">
             <div class="card-body stat-card-body">
                 <h6 class="text-white-50 text-uppercase fw-bold mb-2">Total Pengguna</h6>
@@ -129,24 +129,40 @@
     </div>
 </div>
 
-<div class="row align-items-stretch">
+<div class="row align-items-stretch g-3 g-md-4 mb-4">
     <!-- Chart Section -->
-    <div class="col-lg-8 mb-5">
+    <div class="col-12 col-lg-8">
         <div class="card border-0 shadow-sm h-100" style="border-radius: 16px;">
-            <div class="card-header bg-white border-0 pt-4 pb-0 px-4">
+            <div class="card-header bg-white border-0 pt-4 pb-0 px-3 px-md-4">
                 <h5 class="fw-bold text-gray-800 mb-0"><i class="fas fa-chart-bar text-primary me-2"></i> Statistik Akses SK</h5>
                 <p class="text-muted small">Top 5 Surat Keputusan yang paling sering diunduh/dilihat oleh pengguna.</p>
             </div>
-            <div class="card-body px-4 pb-4" style="position: relative; height: 350px; width: 100%;">
+            <div class="card-body px-3 px-md-4 pb-4" style="position: relative; height: 350px; width: 100%;">
                 <canvas id="skChart"></canvas>
             </div>
         </div>
     </div>
-    
+
+    <!-- Quick Info Section -->
+    <div class="col-12 col-lg-4">
+        <div class="card welcome-card shadow-sm h-100">
+            <div class="card-body p-4 d-flex flex-column justify-content-center">
+                <h4 class="fw-bold mb-3">Selamat Datang, {{ auth()->user()->name }}! 👋</h4>
+                <p class="text-muted mb-4">Anda login sebagai Administrator. Gunakan Navigasi disamping atau klik panel di atas untuk mulai mengelola sistem SK & SOP.</p>
+                <div class="d-grid gap-2">
+                    <a href="{{ route('admin.sk') }}" class="btn btn-primary rounded-pill py-2 fw-medium"><i class="fas fa-plus me-2"></i>Tambah SK Baru</a>
+                    <a href="{{ route('admin.users') }}" class="btn btn-light border rounded-pill py-2 text-dark fw-medium"><i class="fas fa-user-plus me-2"></i>Undang User</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-3 g-md-4 mb-5">
     <!-- Login Frequency Chart -->
-    <div class="col-lg-12 mb-5">
+    <div class="col-12">
         <div class="card border-0 shadow-sm h-100" style="border-radius: 16px;">
-            <div class="card-header bg-white border-0 pt-4 pb-0 px-4 d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+            <div class="card-header bg-white border-0 pt-4 pb-0 px-3 px-md-4 d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
                 <div>
                     <h5 class="fw-bold text-gray-800 mb-0"><i class="fas fa-users text-primary me-2"></i> Frekuensi Login Pengguna</h5>
                     <p class="text-muted small">Top 10 pengguna yang paling sering login.</p>
@@ -166,20 +182,6 @@
             </div>
             <div class="card-body px-4 pb-4" style="position: relative; height: 350px; width: 100%;">
                 <canvas id="loginChart"></canvas>
-            </div>
-        </div>
-    </div>
-
-    <!-- Quick Info Section -->
-    <div class="col-lg-4 mb-5">
-        <div class="card welcome-card shadow-sm h-100">
-            <div class="card-body p-4 d-flex flex-column justify-content-center">
-                <h4 class="fw-bold mb-3">Selamat Datang, {{ auth()->user()->name }}! 👋</h4>
-                <p class="text-muted mb-4">Anda login sebagai Administrator. Gunakan Navigasi disamping atau klik panel di atas untuk mulai mengelola sistem SK.</p>
-                <div class="d-grid gap-2">
-                    <a href="{{ route('admin.sk') }}" class="btn btn-primary rounded-pill py-2 fw-medium"><i class="fas fa-plus me-2"></i>Tambah SK Baru</a>
-                    <a href="{{ route('admin.users') }}" class="btn btn-light border rounded-pill py-2 text-dark fw-medium"><i class="fas fa-user-plus me-2"></i>Undang User</a>
-                </div>
             </div>
         </div>
     </div>

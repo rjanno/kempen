@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 
 class AuthController extends Controller
 {
@@ -13,11 +14,7 @@ class AuthController extends Controller
             return Auth::user()->role === 'admin' ? redirect()->route('admin.dashboard') : redirect()->route('user.dashboard');
         }
 
-        $num1 = rand(1, 9);
-        $num2 = rand(1, 9);
-        session(['captcha_result' => $num1 + $num2]);
-
-        return view('auth.login', compact('num1', 'num2'));
+        return view('auth.login');
     }
 
     public function login(Request $request)
@@ -25,14 +22,24 @@ class AuthController extends Controller
         $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
-            'captcha' => 'required|numeric'
+            'cf-turnstile-response' => 'required',
+        ], [
+            'cf-turnstile-response.required' => 'Silakan selesaikan verifikasi Cloudflare Turnstile.',
         ]);
 
-        if ($request->captcha != session('captcha_result')) {
-            return back()->with('error', 'Jawaban captcha tidak tepat. Silakan coba lagi.')->onlyInput('email');
-        }
+        $turnstileSecret = config('services.turnstile.secret');
 
-        session()->forget('captcha_result');
+        if ($turnstileSecret) {
+            $response = Http::asForm()->post('https://challenges.cloudflare.com/turnstile/v0/siteverify', [
+                'secret' => $turnstileSecret,
+                'response' => $request->input('cf-turnstile-response'),
+                'remoteip' => $request->ip(),
+            ]);
+
+            if (!$response->successful() || !$response->json('success')) {
+                return back()->with('error', 'Verifikasi keamanan Cloudflare Turnstile gagal. Silakan coba lagi.')->onlyInput('email');
+            }
+        }
 
         if (Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']])) {
             $request->session()->regenerate();

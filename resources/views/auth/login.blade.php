@@ -105,12 +105,17 @@
             <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 px-0 px-sm-3">
                 <div class="card login-card">
                     <div class="login-header">
-                        <i class="fas fa-file-signature fa-3x mb-3 text-white-50"></i>
-                        <h2>SIP-PB</h2>
-                        <p class="mb-0 text-white-50">Sistem Informasi Peraturan Putra Batam</p>
+                        <div class="mb-3 d-inline-flex align-items-center justify-content-center bg-white rounded-circle shadow-sm" style="width: 76px; height: 76px;">
+                            <img src="{{ asset('images/logo-icon.png') }}" alt="Logo Buana Sejahtera" style="height: 50px; width: auto; object-fit: contain;">
+                        </div>
+                        <h2>SIP-BS</h2>
+                        <p class="mb-0 text-white-50">Sistem Informasi Peraturan Buana Sejahtera</p>
                     </div>
 
                     <div class="login-body bg-white">
+                        <div class="text-center mb-4">
+                            <img src="{{ asset('images/logo.png') }}" alt="BPR Buana Sejahtera" class="img-fluid" style="max-height: 48px; object-fit: contain;">
+                        </div>
                         <h5 class="text-center mb-4 text-gray-800 fw-bold">Selamat Datang kembali!</h5>
 
                         <form id="loginForm" action="{{ route('login.post') }}" method="POST">
@@ -134,16 +139,8 @@
                                 </div>
                             </div>
 
-                            <div class="mb-4">
-                                <label for="captcha"
-                                    class="form-label text-muted small fw-bold text-uppercase">Captcha</label>
-                                <div class="input-group">
-                                    <span class="input-group-text bg-light text-primary fw-bold"
-                                        style="font-size: 1.1rem; letter-spacing: 2px; width: 80px; justify-content: center;">{{ $num1 }}
-                                        + {{ $num2 }}</span>
-                                    <input type="number" name="captcha" class="form-control" id="captcha" required
-                                        placeholder="Jawab soal di samping..." autocomplete="off">
-                                </div>
+                            <div class="mb-4 d-flex justify-content-center">
+                                <div class="cf-turnstile" data-sitekey="{{ config('services.turnstile.key') }}" data-theme="light"></div>
                             </div>
 
                             <div class="d-grid mt-5">
@@ -160,6 +157,7 @@
 @endsection
 
 @push('scripts')
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script>
         $(document).ready(function() {
             // Styling focus states for input groups
@@ -171,7 +169,14 @@
                 $(this).parent().find('.input-group-text').css('color', '#b7b9cc');
             });
 
-            $('#loginForm').on('submit', function() {
+            $('#loginForm').on('submit', function(e) {
+                const turnstileResponse = $('[name="cf-turnstile-response"]').val();
+                if (!turnstileResponse) {
+                    e.preventDefault();
+                    alert('Harap selesaikan verifikasi Cloudflare Turnstile terlebih dahulu.');
+                    return false;
+                }
+
                 $('#btnLogin').html('<i class="fas fa-spinner fa-spin me-2"></i> Sedang Memuat...').prop(
                     'disabled', true);
             });
