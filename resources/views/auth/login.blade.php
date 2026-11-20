@@ -105,17 +105,14 @@
             <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 px-0 px-sm-3">
                 <div class="card login-card">
                     <div class="login-header">
-                        <div class="mb-3 d-inline-flex align-items-center justify-content-center bg-white rounded-circle shadow-sm" style="width: 76px; height: 76px;">
-                            <img src="{{ asset('images/logo-icon.png') }}" alt="Logo Buana Sejahtera" style="height: 50px; width: auto; object-fit: contain;">
+                        <div class="mb-3 d-inline-flex align-items-center justify-content-center bg-white rounded-3 p-2 px-3 shadow-sm" style="max-width: 90%;">
+                            <img src="{{ asset('images/logo.png') }}" alt="BPR Buana Sejahtera" class="img-fluid" style="max-height: 52px; width: auto; object-fit: contain;">
                         </div>
                         <h2>SIP-BS</h2>
                         <p class="mb-0 text-white-50">Sistem Informasi Peraturan Buana Sejahtera</p>
                     </div>
 
                     <div class="login-body bg-white">
-                        <div class="text-center mb-4">
-                            <img src="{{ asset('images/logo.png') }}" alt="BPR Buana Sejahtera" class="img-fluid" style="max-height: 48px; object-fit: contain;">
-                        </div>
                         <h5 class="text-center mb-4 text-gray-800 fw-bold">Selamat Datang kembali!</h5>
 
                         <form id="loginForm" action="{{ route('login.post') }}" method="POST">
