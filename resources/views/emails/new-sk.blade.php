@@ -75,7 +75,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>SIP-BS - Regulasi Internal Baru</h1>
+            <h1>sippb - Regulasi Internal Baru</h1>
         </div>
         
         <div class="content">

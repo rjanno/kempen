@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ config('app.name', 'SIP-BS') }}</title>
+    <title>{{ config('app.name', 'sippb') }}</title>
     <!-- Favicon & PWA Icons -->
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('images/icons/apple-touch-icon.png') }}">
@@ -12,8 +12,8 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="SIP-BS">
-    <meta name="application-name" content="SIP-BS">
+    <meta name="apple-mobile-web-app-title" content="sippb">
+    <meta name="application-name" content="sippb">
     <link rel="manifest" href="{{ asset('manifest.json') }}">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -361,8 +361,8 @@
     <nav id="sidebar">
         <div class="sidebar-header">
             <a href="#" class="sidebar-logo">
-                <img src="{{ asset('images/logo-icon.png') }}" alt="SIP-BS" style="height: 36px; width: auto; object-fit: contain;">
-                <span>SIP-BS</span>
+                
+                <span>sippb</span>
             </a>
         </div>
         
@@ -430,7 +430,7 @@
 
         <div class="sidebar-footer">
             <div class="text-center text-muted small">
-                &copy; {{ date('Y') }} SIP-BS<br><small>Created by RAH</small>
+                &copy; {{ date('Y') }} sippb<br><small>Created by RAH</small>
             </div>
         </div>
     </nav>
@@ -438,8 +438,8 @@
     <!-- Mobile Topbar -->
     <div id="mobile-nav">
         <a href="#" class="sidebar-logo fs-4 text-decoration-none d-flex align-items-center gap-2">
-            <img src="{{ asset('images/logo-icon.png') }}" alt="SIP-BS" style="height: 32px; width: auto; object-fit: contain;">
-            <span>SIP-BS</span>
+            
+            <span>sippb</span>
         </a>
         <div class="d-flex align-items-center gap-2">
             <button type="button" class="btn btn-outline-primary btn-sm rounded-pill px-2 py-1 d-flex align-items-center gap-1 shadow-sm btn-install-app" title="Pasang Aplikasi">
@@ -701,7 +701,7 @@
             if ('serviceWorker' in navigator) {
                 window.addEventListener('load', function() {
                     navigator.serviceWorker.register('/sw.js').then(function(reg) {
-                        console.log('SIP-BS Service Worker registered:', reg.scope);
+                        console.log('sippb Service Worker registered:', reg.scope);
                     }).catch(function(err) {
                         console.warn('Service Worker registration failed:', err);
                     });

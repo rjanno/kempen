@@ -106,10 +106,9 @@
                 <div class="card login-card">
                     <div class="login-header">
                         <div class="mb-3 d-inline-flex align-items-center justify-content-center bg-white rounded-3 p-2 px-3 shadow-sm" style="max-width: 90%;">
-                            <img src="{{ asset('images/logo.png') }}" alt="BPR Buana Sejahtera" class="img-fluid" style="max-height: 52px; width: auto; object-fit: contain;">
                         </div>
-                        <h2>SIP-BS</h2>
-                        <p class="mb-0 text-white-50">Sistem Informasi Peraturan Buana Sejahtera</p>
+                        <h2>SIP-PB</h2>
+                        <p class="mb-0 text-white-50">Sistem Informasi Peraturan Putra Batam</p>
                     </div>
 
                     <div class="login-body bg-white">
