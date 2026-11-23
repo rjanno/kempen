@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ config('app.name', 'sippb') }}</title>
+    <title>sippb</title>
     <!-- Favicon & PWA Icons -->
-    <link rel="icon" type="image/png" href="{{ asset('images/icons/icon-96x96.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('images/icons/apple-touch-icon.png') }}">
+    <link rel="icon" href="data:,">
     <!-- PWA & Mobile Web Meta Tags -->
     <meta name="theme-color" content="#7c3aed">
     <meta name="mobile-web-app-capable" content="yes">
@@ -753,7 +752,7 @@
                     const myModal = new bootstrap.Modal(document.getElementById('iosInstallModal'));
                     myModal.show();
                 } else {
-                    alert('Untuk memasang aplikasi SIP-BS:\n1. Buka menu browser (ikon titik tiga di kanan atas).\n2. Pilih "Install aplikasi" atau "Tambahkan ke Layar Utama".');
+                    alert('Untuk memasang aplikasi sippb:\n1. Buka menu browser (ikon titik tiga di kanan atas).\n2. Pilih "Install aplikasi" atau "Tambahkan ke Layar Utama".');
                 }
             });
 
@@ -793,9 +792,8 @@
     <!-- PWA Install Banner (Android / Chrome) -->
     <div id="pwaInstallBanner" class="pwa-install-banner d-none">
         <div class="d-flex align-items-center gap-3">
-            <img src="{{ asset('images/icons/icon-72x72.png') }}" alt="SIP-BS" class="rounded-3 shadow-sm" style="width: 44px; height: 44px;">
             <div class="flex-grow-1">
-                <div class="fw-bold text-dark lh-sm" style="font-size: 0.95rem;">Pasang Aplikasi SIP-BS</div>
+                <div class="fw-bold text-dark lh-sm" style="font-size: 0.95rem;">Pasang Aplikasi sippb</div>
                 <small class="text-muted" style="font-size: 0.78rem;">Akses cepat regulasi langsung di layar HP Anda</small>
             </div>
             <div class="d-flex align-items-center gap-2">
@@ -818,8 +816,8 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-4 text-center">
-                    <img src="{{ asset('images/icons/icon-96x96.png') }}" alt="SIP-BS" class="rounded-4 shadow-sm mb-3" style="width: 64px; height: 64px;">
-                    <h6 class="fw-bold text-dark">Pasang SIP-BS ke Layar Utama</h6>
+
+                    <h6 class="fw-bold text-dark">Pasang sippb ke Layar Utama</h6>
                     <p class="text-muted small mb-4">Akses aplikasi dengan satu ketukan langsung dari layar utama iPhone/iPad Anda:</p>
                     <ol class="text-start small text-secondary ps-3 mb-4 d-flex flex-column gap-2">
                         <li>Tekan ikon <strong>Bagikan (Share)</strong> <i class="fas fa-share-square text-primary mx-1"></i> di bilah navigasi Safari.</li>
