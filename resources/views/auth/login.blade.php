@@ -107,7 +107,7 @@
                     <div class="login-header">
                         <div class="mb-3 d-inline-flex align-items-center justify-content-center bg-white rounded-3 p-2 px-3 shadow-sm" style="max-width: 90%;">
                         </div>
-                        <h2>SIP-PB</h2>
+                        <h2>sippb</h2>
                         <p class="mb-0 text-white-50">Sistem Informasi Peraturan Putra Batam</p>
                     </div>
 

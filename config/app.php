@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Sistem Informasi Peraturan Putra Batam'),
+    'name' => env('APP_NAME', 'sippb'),
 
     /*
     |--------------------------------------------------------------------------

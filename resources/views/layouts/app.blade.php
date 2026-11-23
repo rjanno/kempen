@@ -736,7 +736,7 @@
             window.addEventListener('appinstalled', () => {
                 $('#pwaInstallBanner').addClass('d-none');
                 deferredPrompt = null;
-                console.log('SIP-BS successfully installed');
+                console.log('sippb successfully installed');
             });
 
             // Trigger install button from header or sidebar
