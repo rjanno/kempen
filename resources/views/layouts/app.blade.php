@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ config('app.name', 'sippb') }}</title>
     <!-- Favicon & PWA Icons -->
-    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/icons/icon-96x96.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('images/icons/apple-touch-icon.png') }}">
     <!-- PWA & Mobile Web Meta Tags -->
     <meta name="theme-color" content="#7c3aed">
